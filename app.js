@@ -66,8 +66,8 @@ function createWeatherString(dailyWeather) {
   const weekDays = getComingDays();
 
   const weatherString = weekDays
-    .map((day, index) => day + " " + WEATHER_TO_EMOJI[dailyWeather[index]])
-    .join(" ");
+    .map((day, index) => day + WEATHER_TO_EMOJI[dailyWeather[index]])
+    .join("");
   return weatherString;
 }
 
@@ -101,4 +101,4 @@ getGeolocation();
 
 setInterval(() => {
   getWeather(userPos);
-}, 15000); // Once an hour
+}, 3600000); // Once an hour
