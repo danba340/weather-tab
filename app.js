@@ -1,6 +1,6 @@
 const URL_BASE = `https://api.openweathermap.org/data/2.5/forecast?appid=17811b814f836419545653077fa493fe`;
 const setLoading = loadingHandler();
-const getWeatherString = weatherStringCreator();
+const createWeatherString = weatherStringCreator();
 
 function initApp(callback) {
   function success(position) {
@@ -71,7 +71,7 @@ function weatherStringCreator(dailyWeather) {
     }
     return fiveDays.map((day) => day[0]);
   }
-  return function getWeatherString() {
+  return function getWeatherString(dailyWeather) {
     const weekDays = getComingDays();
     const weatherString = weekDays
       .map((day, index) => day + weatherToEmoji[dailyWeather[index]])
